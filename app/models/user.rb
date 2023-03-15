@@ -37,9 +37,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :last_name, presence: true
 
-  has_one :bank
-  has_one :company
-  has_one :address, as: :addressable
+  has_one :bank, dependent: :destroy
+  has_one :company, dependent: :destroy
+  has_one :address, as: :addressable, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
     %w[first_name last_name email gender age]

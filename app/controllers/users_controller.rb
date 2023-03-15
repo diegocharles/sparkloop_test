@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: %i[ show edit update destroy ]
 
+  caches_action :index, layout: false
+
   # GET /users or /users.json
   def index
     @q = User.ransack(params[:q])
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        expire_action action: :index
+
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -42,6 +46,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        expire_action action: :index
+
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -57,6 +63,18 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /users/bulk_destroy
+  def bulk_destroy
+    User.where(id: params[:user_ids]).destroy_all
+
+    expire_action action: :index
+
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: "Users were successfully destroyed." }
       format.json { head :no_content }
     end
   end

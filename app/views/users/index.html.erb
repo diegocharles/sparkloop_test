@@ -2,7 +2,10 @@
 
 <h1 class="mb-5">Users</h1>
 
-<div id="users">
+<div id="users"  data-controller="users-bulk">
+  <%= link_to "Delete All Selected", "#", data: { action: "click->users-bulk#destroy" }, class: 'btn btn-small btn-danger mb-3' %>
+  <hr />
+
   <%= search_form_for @q, class: 'mb-3' do |f| %>
     <%= f.label :first_name_cont %>
     <%= f.search_field :first_name_cont %>
@@ -24,7 +27,9 @@
 
   <table class="table table-striped">
     <tr>
-      <th>selected</th>
+      <th>
+        <%= check_box_tag nil, nil, false, data: { users_bulk_target: "checkboxAll" } %> Select All
+      </th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
@@ -35,14 +40,24 @@
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td></td>
+        <td>
+          <%= check_box_tag "user_ids[]", user.id, false, data: { users_bulk_target: "checkbox" } %>
+        </td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.domain %></td>
         <td><%= user.age %></td>
         <td><%= user.gender %></td>
-        <td><%= link_to "Show", user, data: { turbo_frame: 'modal' } %></td>
+        <td>
+          <%= link_to "Show", user, data: { turbo_frame: 'modal' } %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_user_path(user), data: { turbo_frame: 'modal' } %>
+        </td>
+        <td>
+          <%= button_to "Destroy", user, method: :delete, class: 'btn btn-link' %>
+        </td>
       </tr>
     <% end %>
   </table>
