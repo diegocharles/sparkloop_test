@@ -44,4 +44,10 @@ class User < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     %w[first_name last_name email gender age]
   end
+
+  def destroy
+    super
+    UserMailer.deletion_notice(first_name, email).deliver_later(wait: 30.minutes)
+    broadcast_remove_to "users"
+  end
 end

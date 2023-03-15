@@ -69,12 +69,12 @@ class UsersController < ApplicationController
 
   # DELETE /users/bulk_destroy
   def bulk_destroy
-    User.where(id: params[:user_ids]).destroy_all
+    User.where(id: params[:user_ids]).each &:destroy
 
     expire_action action: :index
 
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "Users were successfully destroyed." }
+      format.html { redirect_to root_url, notice: "Users were successfully destroyed.", status: 303 }
       format.json { head :no_content }
     end
   end
