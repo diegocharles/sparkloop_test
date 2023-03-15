@@ -40,4 +40,8 @@ class User < ApplicationRecord
   has_one :bank
   has_one :company
   has_one :address, as: :addressable
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[first_name last_name email gender age]
+  end
 end

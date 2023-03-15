@@ -148,6 +148,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
+    pagy (6.0.2)
     pg (1.4.6)
     popper_js (2.11.6)
     pry (0.14.2)
@@ -187,6 +188,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.1)
     regexp_parser (2.7.0)
     rexml (3.2.5)
@@ -281,10 +286,12 @@ DEPENDENCIES
   httparty
   importmap-rails
   jbuilder
+  pagy
   pg (~> 1.1)
   pry
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  ransack
   redis (~> 4.0)
   rspec-rails
   selenium-webdriver

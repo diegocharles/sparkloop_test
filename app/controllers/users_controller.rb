@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @pagy, @users = pagy(@q.result(distinct: true))
   end
 
   # GET /users/1 or /users/1.json
