@@ -15,6 +15,7 @@ gem "redis", "~> 4.0"
 gem "bootstrap", '~> 5.1.3'
 gem "pagy"
 gem "ransack"
+gem "view_component"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

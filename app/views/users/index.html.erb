@@ -19,7 +19,7 @@
     <%= f.label :age_eq, "Age" %>
     <%= f.select :age_eq, options_for_select((1..100).to_a), include_blank: true  %>
 
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-secondary' %>
   <% end %>
 
   <table class="table table-striped">
@@ -42,6 +42,7 @@
         <td><%= user.domain %></td>
         <td><%= user.age %></td>
         <td><%= user.gender %></td>
+        <td><%= link_to "Show", user, data: { turbo_frame: 'modal' } %></td>
       </tr>
     <% end %>
   </table>

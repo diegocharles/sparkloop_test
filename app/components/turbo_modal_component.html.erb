@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal fade" id="contentModal"
+    data-controller="modal turbo-modal"
+    data-action="turbo:before-render@document->remote-modal#hideBeforeRender"
+    data-turbo-modal-target="modal"
+    tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contentModalLabel">
+            <%= @title %>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-turbo-modal-target="closeButton" id="closeButton"></button>
+        </div>
+
+        <div class="modal-body">
+          <%= content %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
