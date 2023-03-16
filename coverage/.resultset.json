@@ -1,7 +1,70 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/user_import.rb": {
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/jobs/user_fetcher_job.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/jobs/application_job.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/mailers/user_mailer.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/user_api_handler.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          1,
+          1,
+          100,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/user_importer.rb": {
         "lines": [
           1,
           null,
@@ -10,39 +73,28 @@
           1,
           null,
           1,
-          0,
+          8,
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
+          24,
           null,
           null,
           1,
           null,
           1,
-          0,
-          null,
-          0,
+          21,
+          21,
           null,
           null,
           1,
-          0,
+          5,
+          null,
+          3,
+          null,
+          null,
+          1,
+          23,
           null,
           null
         ]
@@ -101,6 +153,16 @@
           3,
           3,
           null,
+          null,
+          1,
+          null,
+          1,
+          109,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -111,37 +173,51 @@
           null
         ]
       },
-      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/address.rb": {
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/user_creator.rb": {
         "lines": [
+          1,
+          1,
+          null,
+          1,
+          5296,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
           null,
           null,
           null,
           1,
+          null,
           1,
+          100,
+          null,
+          null,
+          1,
+          100,
+          null,
+          null,
+          1,
+          100,
+          null,
+          null,
+          1,
+          100,
+          null,
+          null,
+          1,
+          100,
+          null,
           null
         ]
       },
-      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/bank.rb": {
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/address.rb": {
         "lines": [
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -192,29 +268,47 @@
           1,
           null,
           1,
+          null,
+          1,
           null
         ]
       },
-      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/mailers/user_mailer.rb": {
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/models/bank.rb": {
         "lines": [
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           1,
-          0,
-          0,
-          null,
+          1,
           null
         ]
       },
-      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/mailers/application_mailer.rb": {
+      "/Users/diegocharles/Documents/Projetos/Labs/SparkLookTest/app/controllers/application_controller.rb": {
         "lines": [
-          1,
-          1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1678894344
+    "timestamp": 1678975786
   }
 }

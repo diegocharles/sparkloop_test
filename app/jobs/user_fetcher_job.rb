@@ -2,7 +2,7 @@ class UserFetcherJob < ApplicationJob
   queue_as :default
 
   def perform(limit:, skip:)
-    HTTParty.get("https://dummyjson.com/users?limit=#{limit}&skip=#{skip}").parsed_response
+    UserApiHandler.new(limit: limit, skip: skip).fetch_and_create_users
 
     rescue StandardError => e
       Rails.logger.error(e)

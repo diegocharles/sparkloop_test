@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    render partial: 'show', locals: { user: @user }, layout: false
+    render layout: false
   end
 
   # GET /users/new
@@ -25,21 +25,11 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # POST /users or /users.json
+  # POST /users
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        expire_action action: :index
-
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    expire_action action: :index if @user.save
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -85,6 +75,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.fetch(:user, {})
+      # bad idea in the real world because you really don't want to allow id, created_at and updated_at to be updated
+      params.require(:user).permit!
     end
 end

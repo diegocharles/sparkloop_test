@@ -1,7 +1,7 @@
 <%= render TurboModalComponent.new(title: full_name(@user)) do %>
   <p style="color: green"><%= notice %></p>
 
-  <%= render @user %>
+  <%= render partial: 'user', locals: { user: @user } %>
 
   <div>
     <%= link_to "Edit", edit_user_path(@user) %> |

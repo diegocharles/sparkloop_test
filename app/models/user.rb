@@ -50,4 +50,14 @@ class User < ApplicationRecord
     UserMailer.deletion_notice(first_name, email).deliver_later(wait: 30.minutes)
     broadcast_remove_to "users"
   end
+
+  private
+
+  after_create_commit do
+    broadcast_prepend_to "users_table", target: "users_table", partial: "users/user_row", locals: { user: self }
+  end
+
+  after_update_commit do
+    broadcast_replace_to "users"
+  end
 end

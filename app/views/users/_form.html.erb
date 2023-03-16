@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <% user.attributes.except('id', 'created_at', 'updated_at').each_pair do |key, value| %>
+    <div class="mb-3">
+      <strong><%= form.label key %></strong> <br />
+      <%= form.text_field key %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

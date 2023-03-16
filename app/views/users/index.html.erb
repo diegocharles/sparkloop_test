@@ -40,25 +40,9 @@
       <th colspan="3"></th>
     </tr>
     <% @users.each do |user| %>
+      <%= turbo_stream_from "users_table" %>
       <tr id="<%= dom_id(user) %>">
-        <td>
-          <%= check_box_tag "user_ids[]", user.id, false, data: { users_bulk_target: "checkbox" } %>
-        </td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.domain %></td>
-        <td><%= user.age %></td>
-        <td><%= user.gender %></td>
-        <td>
-          <%= link_to "Show", user, data: { turbo_frame: 'modal' } %>
-        </td>
-        <td>
-          <%= link_to "Edit", edit_user_path(user), data: { turbo_frame: 'modal' } %>
-        </td>
-        <td>
-          <%= button_to "Destroy", user, method: :delete, class: 'btn btn-link' %>
-        </td>
+        <%= render partial: 'user_row', locals: { user: user } %>
       </tr>
     <% end %>
   </table>
@@ -66,4 +50,4 @@
   <%== pagy_bootstrap_nav(@pagy) %>
 </div>
 
-<%= link_to "New user", new_user_path, class: 'btn btn-primary mt-3' %>
+<%= link_to "New user", new_user_path, class: 'btn btn-primary mt-3', data: { turbo_frame: 'modal' } %>

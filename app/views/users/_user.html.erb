@@ -1,5 +1,5 @@
 <div id="<%= dom_id user %>" class="mb-3">
-  <% @user.attributes.except('id').each_pair do |key, value| %>
+  <% user.attributes.except('id').each_pair do |key, value| %>
     <p>
       <strong><%= key.humanize %>:</strong><br />
       <%= value %>
