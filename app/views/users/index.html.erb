@@ -39,12 +39,8 @@
       <th>Gender</th>
       <th colspan="3"></th>
     </tr>
-    <% @users.each do |user| %>
-      <%= turbo_stream_from "users_table" %>
-      <tr id="<%= dom_id(user) %>">
-        <%= render partial: 'user_row', locals: { user: user } %>
-      </tr>
-    <% end %>
+
+    <%= render partial: 'user_row', collection: @users, as: :user %>
   </table>
 
   <%== pagy_bootstrap_nav(@pagy) %>

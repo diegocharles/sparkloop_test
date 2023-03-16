@@ -1,18 +1,20 @@
-<td>
-  <%= check_box_tag "user_ids[]", user.id, false, data: { users_bulk_target: "checkbox" } %>
-</td>
-<td><%= user.first_name %></td>
-<td><%= user.last_name %></td>
-<td><%= user.email %></td>
-<td><%= user.domain %></td>
-<td><%= user.age %></td>
-<td><%= user.gender %></td>
-<td>
-  <%= link_to "Show", user, data: { turbo_frame: 'modal' } %>
-</td>
-<td>
-  <%= link_to "Edit", edit_user_path(user), data: { turbo_frame: 'modal' } %>
-</td>
-<td>
-  <%= button_to "Destroy", user, method: :delete, class: 'btn btn-link' %>
-</td>
+<tr id="<%= dom_id(user) %>">
+  <td>
+    <%= check_box_tag "user_ids[]", user.id, false, data: { users_bulk_target: "checkbox" } %>
+  </td>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.domain %></td>
+  <td><%= user.age %></td>
+  <td><%= user.gender %></td>
+  <td>
+    <%= link_to "Show", user, data: { turbo_frame: 'modal' } %>
+  </td>
+  <td>
+    <%= link_to "Edit", edit_user_path(user), data: { turbo_frame: 'modal' } %>
+  </td>
+  <td>
+    <%= button_to "Destroy", user, method: :delete, class: 'btn btn-link' %>
+  </td>
+</tr>

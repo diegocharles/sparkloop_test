@@ -11,6 +11,8 @@ require 'rspec/rails'
 
 require 'capybara/rspec'
 
+include Rack::Test::Methods
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
