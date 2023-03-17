@@ -5,6 +5,7 @@
 <%= turbo_stream_from :users %>
 <div id="users" data-controller="users-bulk">
   <%= link_to "Delete All Selected", "#", data: { action: "click->users-bulk#destroy", test_selector: "delete_all_button" }, class: 'btn btn-small btn-danger mb-3' %>
+  <%= link_to "Bulk Import from Dummy API", bulk_import_users_url,  class: 'btn btn-small btn-primary mb-3' %>
   <hr />
 
   <%= search_form_for @q, class: 'mb-3' do |f| %>

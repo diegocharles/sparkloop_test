@@ -25,6 +25,13 @@ class UsersController < ApplicationController
   def edit
   end
 
+  # GET /users/bulk_import
+  def bulk_import
+    UserImporter.new(limit: 10).import
+
+    redirect_to root_url, notice: "Users were successfully imported."
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -32,7 +39,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         expire_action action: :index
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('users_list', partial: "users/user_row", locals: { user: @user }) }
         format.html { redirect_to users_url, notice: "User was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
