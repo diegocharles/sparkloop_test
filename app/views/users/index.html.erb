@@ -27,20 +27,24 @@
   <% end %>
 
   <table class="table table-striped">
-    <tr>
-      <th>
-        <%= check_box_tag nil, nil, false, data: { users_bulk_target: "checkboxAll" }, class: 'd-none' %>
-      </th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Domain</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th colspan="3"></th>
-    </tr>
+    <thead>
+      <tr>
+        <th>
+          <%= check_box_tag nil, nil, false, data: { users_bulk_target: "checkboxAll" }, class: 'd-none' %>
+        </th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Domain</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-    <%= render partial: 'user_row', collection: @users, as: :user %>
+    <tbody id="users_list">
+      <%= render partial: 'user_row', collection: @users, as: :user %>
+    </tbody>
   </table>
 
   <%== pagy_bootstrap_nav(@pagy) %>

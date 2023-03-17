@@ -1,10 +1,8 @@
-<h1>Editing user</h1>
+<%= render TurboModalComponent.new(title: "Edit #{@user.first_name}") do %>
+  <%= render "form", user: @user %>
+  <br>
 
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
-</div>
+  <div>
+    <%= link_to "Back", users_path %>
+  </div>
+<% end %>
